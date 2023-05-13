@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 
-function App() {
+function DropdownForm() {
   const [ethnicity, setEthnicity] = useState("");
   const [ageRange, setAgeRange] = useState("");
   const [sex, setSex] = useState("");
   const [numChildren, setNumChildren] = useState("");
+  const [results, setResults] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    alert(`This person is in the age range of ${ageRange}, is ${sex}, and has ${numChildren} children.`);
+    setResults(`This person is ${ethnicity}, in the age range of ${ageRange}, is ${sex}, and has ${numChildren} children.`);
   };
 
   return (
@@ -56,8 +57,10 @@ function App() {
 
         <button type="submit">Return results</button>
       </form>
+
+      <p>{results}</p>
     </div>
   );
 }
 
-export default App;
+export default DropdownForm;
